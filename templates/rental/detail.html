@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg">
+
+        <div class="card-body">
+
+            <h2>{{ product.name }}</h2>
+
+            <hr>
+
+            <p>{{ product.description }}</p>
+
+            <h4 class="text-success">
+                Rp {{ "{:,}".format(product.price_per_day) }}/hari
+            </h4>
+
+            <form method="POST" class="mt-4">
+
+                <div class="mb-3">
+                    <label>Tanggal Sewa</label>
+                    <input type="date"
+                           name="start_date"
+                           class="form-control"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Tanggal Kembali</label>
+                    <input type="date"
+                           name="end_date"
+                           class="form-control"
+                           required>
+                </div>
+
+                <button class="btn btn-success">
+                    Ajukan Penyewaan
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

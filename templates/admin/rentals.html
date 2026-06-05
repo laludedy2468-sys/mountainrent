@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+
+<h2>Data Rental</h2>
+
+<table class="table table-bordered">
+
+<tr>
+<th>ID</th>
+<th>User</th>
+<th>Produk</th>
+<th>Total</th>
+<th>Status</th>
+<th>Aksi</th>
+</tr>
+
+{% for rental in rentals %}
+<tr>
+
+<td>{{ rental.id }}</td>
+
+<td>{{ rental.user.full_name }}</td>
+
+<td>{{ rental.product.name }}</td>
+
+<td>Rp {{ rental.total_price }}</td>
+
+<td>{{ rental.status }}</td>
+
+<td>
+
+<a href="/admin/rental/approve/{{ rental.id }}"
+class="btn btn-success btn-sm">
+Approve
+</a>
+
+<a href="/admin/rental/reject/{{ rental.id }}"
+class="btn btn-danger btn-sm">
+Tolak
+</a>
+
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+{% endblock %}

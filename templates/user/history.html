@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5"><div class="card shadow-lg border-0">
+
+    <div class="card-body">
+
+        <h2>📋 Riwayat Rental</h2>
+
+        <table class="table table-striped">
+
+            <tr>
+                <th>ID</th>
+                <th>Status</th>
+                <th>Total</th>
+            </tr>
+
+            {% for rental in rentals %}
+
+            <tr>
+                <td>{{ rental.id }}</td>
+                <td>{{ rental.status }}</td>
+                <td>Rp {{ rental.total_price }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</div>{% endblock %}

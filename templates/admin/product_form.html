@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+        <div class="card-body">
+
+            <h2 class="mb-4">
+                Tambah Produk Camping
+            </h2>
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Nama Produk
+                    </label>
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Deskripsi
+                    </label>
+                    <textarea
+                        name="description"
+                        class="form-control"
+                        rows="4"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Harga per Hari
+                    </label>
+                    <input
+                        type="number"
+                        name="price_per_day"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Stock
+                    </label>
+                    <input
+                        type="number"
+                        name="stock"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Upload Gambar Produk
+                    </label>
+                    <input
+                        type="file"
+                        name="image"
+                        class="form-control"
+                        accept="image/*">
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-success">
+                    Simpan Produk
+                </button>
+
+                <a
+                    href="/admin/products"
+                    class="btn btn-secondary">
+                    Kembali
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+
+<h2>Data User</h2>
+
+<table class="table table-bordered">
+
+<tr>
+<th>ID</th>
+<th>Nama</th>
+<th>Email</th>
+<th>Role</th>
+</tr>
+
+{% for user in users %}
+<tr>
+<td>{{ user.id }}</td>
+<td>{{ user.full_name }}</td>
+<td>{{ user.email }}</td>
+<td>{{ user.role }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+{% endblock %}
