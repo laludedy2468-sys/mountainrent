@@ -117,13 +117,33 @@ def delete_product(id):
 
     product = Product.query.get_or_404(id)
 
+    # Hapus semua rental yang terkait produk
+    rentals = Rental.query.filter_by(product_id=id).all()
+
+    for rental in rentals:
+        db.session.delete(rental)
+
+    # Hapus gambar produk
+    if product.image:
+        image_path = os.path.join(
+            "static",
+            "uploads",
+            product.image
+        )
+
+        if os.path.exists(image_path):
+            os.remove(image_path)
+
+    # Hapus produk
     db.session.delete(product)
     db.session.commit()
 
-    flash("Produk berhasil dihapus", "success")
+    flash(
+        "Produk berhasil dihapus",
+        "success"
+    )
 
     return redirect("/admin/products")
-
 
 # ==========================
 # USER
